@@ -182,8 +182,7 @@ namespace ReadoutConsole
             }
 
             var da_end = DateTime.Now;
-            Console.WriteLine("Disk access time: {0}", (da_end - da_start).TotalSeconds);
-            
+            Console.WriteLine("Disk access time: {0}", (da_end - da_start).TotalSeconds);            
         }
 
         public static int totake = 5;
