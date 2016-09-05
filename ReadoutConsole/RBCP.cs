@@ -105,25 +105,11 @@ namespace ReadoutConsole
             byte[] data = {0x00};
             Write(address, data);
         }
-
+        
         public void ToggleIQDataGate(bool open)
         {            
-            byte[] gate_address = {0x50, 0x00, 0x00, 0x00};
-            var ret_data_init = Interpret(Read(gate_address));
-            bool init_state = ret_data_init.Item2[0] == 0x01; // true iff the IQ data gate is open
-            if (init_state != open){
-                Write(gate_address, new byte[] { Convert.ToByte(open) });
-                var ret_data_final = Interpret(Read(gate_address));
-                bool final_state = ret_data_final.Item2[0] == 0x01;
-                if (final_state != open)
-                {
-                    Console.WriteLine("Toggle failed...Re-try!");
-                    System.Threading.Thread.Sleep(500);
-                    ToggleIQDataGate(open);
-                }
-            }                
-            else
-                Console.WriteLine("Nothing to be done");            
+            byte[] gate_address = {0x50, 0x00, 0x00, 0x00};            
+            Write(gate_address, new byte[] { Convert.ToByte(open) });
         }
 
         public static Tuple<byte[], byte[]> Interpret(byte[] msg)

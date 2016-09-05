@@ -171,7 +171,8 @@ namespace ReadoutConsole
 
                 var fname = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
                                                    "data", "20160905",
-                                                   String.Format("tod_{0:F2}.dat", dc.StartDateTime - new DateTime(1970, 1, 1, 9, 0, 0))); 
+                                                   String.Format("tod_{0:F2}.dat", (dc.StartDateTime - new DateTime(1970, 1, 1, 9, 0, 0)).TotalSeconds)
+                                                   ); 
                 using (var sw = new System.IO.StreamWriter(fname))
                 {
                     for (int i = 0; i < dc.ConvertedLength; i++)
@@ -203,7 +204,7 @@ namespace ReadoutConsole
                 try
                 {
                     var dc = new DataContainer(dclength);
-                    dc.StartDateTime = DateTime.Now;
+                    dc.StartDateTime = DateTime.Now;                    
                     rbcp.ToggleIQDataGate(true);
                     readout.Read(dc, dc.Length);                    
                     rbcp.ToggleIQDataGate(false);
@@ -211,6 +212,8 @@ namespace ReadoutConsole
                     tasklist.Add(Task.Run(() => dc.Convert()));                    
                     datacount++;
                     Console.WriteLine(datacount);
+                    System.Threading.Thread.Sleep(50);
+                    readout.Clean();
                 } catch
                 {                    
                     Console.WriteLine("Retry connection...");
