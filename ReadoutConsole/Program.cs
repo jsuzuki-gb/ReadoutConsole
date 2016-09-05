@@ -168,8 +168,11 @@ namespace ReadoutConsole
             var da_start = DateTime.Now;
             foreach (var dc in DCList)
             {
-                var fname = String.Format("tod_{0:F2}.dat", dc.StartDateTime - new DateTime(1970, 1, 1, 9, 0, 0));
-                using (var sw = new System.IO.StreamWriter("tod.dat"))
+
+                var fname = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                                                   "data", "20160905",
+                                                   String.Format("tod_{0:F2}.dat", dc.StartDateTime - new DateTime(1970, 1, 1, 9, 0, 0))); 
+                using (var sw = new System.IO.StreamWriter(fname))
                 {
                     for (int i = 0; i < dc.ConvertedLength; i++)
                     {
