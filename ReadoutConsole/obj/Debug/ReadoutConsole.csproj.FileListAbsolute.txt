@@ -1,0 +1,6 @@
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\bin\Debug\ReadoutConsole.exe.config
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\bin\Debug\ReadoutConsole.exe
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\bin\Debug\ReadoutConsole.pdb
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\obj\Debug\ReadoutConsole.exe
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\obj\Debug\ReadoutConsole.pdb
+C:\Users\Junya\Dropbox\workspace\GB\program\ReadoutConsole\ReadoutConsole\obj\Debug\ReadoutConsole.csprojResolveAssemblyReference.cache
